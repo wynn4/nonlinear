@@ -46,8 +46,8 @@ axis tight equal;
 
 % plot solutions on plot
 hold on
-X0 = [1.95, 0.5]';  % define initial x1 and x2 locations
-tspan = [0, 1];  % lets see solutions from time t = 0 to 30
+X0 = [-1, -1]';  % define initial x1 and x2 locations
+tspan = [0, 10];  % lets see solutions from time t = 0 to 10
 
 % solve using ode45
 [ts, xs] = ode45(f, tspan, X0);

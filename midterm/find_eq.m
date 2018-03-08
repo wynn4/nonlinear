@@ -17,6 +17,6 @@ vars = [x1, x2];
 % display the solutions
 solutions = [solv, solu]
 
-% Note solv corresponds to x1 values solu corresponds to x2 values.
+% Note solv corresponds to x1 values and solu corresponds to x2 values.
 % Ignore any solutions with imaginary parts (can't have imaginary
 % equilibria for real systems).
