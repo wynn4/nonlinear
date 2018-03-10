@@ -14,10 +14,11 @@ tspan = [0, 30];  % lets see solutions from time t = 0 to 10
 [ts, xs] = ode45(@my_fun, tspan, X0);
 
 figure(1), clf
-plot(ts, xs(:,1), ts, xs(:,2))
+plot(ts, xs(:,1), 'k', ts, xs(:,2), 'k--')
 legend('x1', 'x2')
 xlabel('t (s)')
 ylabel('states')
+
 
 function xdot = my_fun(t, X)
 Xdot1 = -X(2)^3;
