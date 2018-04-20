@@ -2,7 +2,7 @@ clc
 clear
 close all
 
-t = 0:0.1:2*pi*10;
+t = 0:0.1:2*pi*4;
 A = 2;
 B = 4;
 
