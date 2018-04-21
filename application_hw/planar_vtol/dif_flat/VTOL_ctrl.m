@@ -26,6 +26,7 @@ function u=VTOL_ctrl(in,P)
     theta_d = PID_z(z_d,z,flag,P.kp_z,P.ki_z,P.kd_z,30*pi/180,P.Ts,P.tau);
     % inner-loop: compute the torque using pitch error
     tau = PD_th(theta_d,theta,flag,P.kp_th,P.kd_th,P.taumax,P.Ts,P.tau);
+    % tau = 0;
 
     u = [F; tau];
 end

@@ -3,6 +3,7 @@ function traj = diff_flat(in,P)
    % get the time 
    t = in(1);
    
+   
    %
    % fly a circle
    %
@@ -12,6 +13,7 @@ function traj = diff_flat(in,P)
    B = P.h_Amp;  % h-axis radius (amplitude)
    
    w = P.omega;
+   % w = in(2);
    
    w_z = w * P.z_mult;
    w_h = w * P.h_mult;

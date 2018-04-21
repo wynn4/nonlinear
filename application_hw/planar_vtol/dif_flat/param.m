@@ -76,13 +76,26 @@ P.kd_z   = (2*zeta_z*wn_z-a1)/b1;
 P.ki_z   = 0;
 
 % Differential Flatness
-P.omega = 0.1;
+
+% Figure 8
+P.omega = 1;
 P.z_Amp = 5;
 P.h_Amp = 5;
-P.z_mult = 1;
+P.z_mult = 0.5;
 P.h_mult = 1;
 
 AP.z0 = P.z_Amp;
+
+% Vertical Figure 8
+
+% % Oval
+% P.omega = 0.1;
+% P.z_Amp = 8;
+% P.h_Amp = 3;
+% P.z_mult = 1;
+% P.h_mult = 1;
+% 
+% AP.z0 = P.z_Amp;
 
 
 

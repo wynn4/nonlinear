@@ -1,4 +1,4 @@
-function torques_and_forces = f_inv(in, P)
+function torques_and_forces = f_inv(in, P, AP)
 
 % this function takes in zddot and hddot (accelerations) from our 
 % differential flatness and converts them to forces and torques
@@ -7,7 +7,7 @@ x = in(1:6);
 traj = in(7:12);
 
 
-mass = P.mc + P.mr + P.ml;
+mass = AP.mc + AP.mr + AP.ml;
 
 % get our accelerations
 zddot = traj(3);
