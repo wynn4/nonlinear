@@ -19,6 +19,7 @@ function u=VTOL_ctrl(in,P)
     % equilibrium force
     F_tilde = PID_h(h_d,h,flag,P.kp_h,P.ki_h,P.kd_h,P.Ftildemax,P.Ts,P.tau);
     F = P.Fe + F_tilde;
+    F = F_tilde;
     
     % lateral control for position
     % outer-loop: compute the desired pitch angle using position error

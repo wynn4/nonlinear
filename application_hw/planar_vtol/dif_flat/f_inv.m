@@ -7,7 +7,7 @@ x = in(1:6);
 traj = in(7:12);
 
 
-mass = P.mc + P.mr + P.ml;
+mass = 1.5;%P.mc + P.mr + P.ml;
 
 % get our accelerations
 zddot = traj(3);

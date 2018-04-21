@@ -8,8 +8,8 @@ function traj = diff_flat(in,P)
    %
    
    
-   A = 5;  % z-axis radius
-   B = 5;  % h-axis radius
+   A = 3;  % z-axis radius
+   B = 3;  % h-axis radius
    
    w = 0.1;
    
