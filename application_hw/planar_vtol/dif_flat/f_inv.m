@@ -7,7 +7,7 @@ x = in(1:6);
 traj = in(7:12);
 
 
-mass = 1.5;%P.mc + P.mr + P.ml;
+mass = P.mc + P.mr + P.ml;
 
 % get our accelerations
 zddot = traj(3);
@@ -19,6 +19,7 @@ hddot = traj(6);
 
 % F = m * a
 F = mass * sqrt(zddot^2 + hddot^2);
+% F = mass * sqrt(hddot^2);
 
 %
 % compute torque

@@ -10,7 +10,7 @@ AP.mu = 0.1; % kg/s
 AP.g = 9.81; % m/s^2
 
 % initial conditions
-AP.z0 = 5;
+AP.z0 = 7;
 AP.zdot0 = 0;
 AP.h0 = 0;
 AP.hdot0 = 0;
@@ -18,12 +18,12 @@ AP.theta0 = 0;
 AP.thetadot0 = 0;
 
 % assumed system paramters used for design
-P.mc = .95*AP.mc;  % kg
-P.mr = 1.05*AP.mr;     % kg
+P.mc = 1*AP.mc;  % kg
+P.mr = 1*AP.mr;     % kg
 P.ml = P.mr; % kg
-P.Jc = 0.95*AP.Jc; %kg m^2
-P.d = 1.03*AP.d; % m
-P.mu = 0.98*AP.mu; % kg/s
+P.Jc = 1*AP.Jc; %kg m^2
+P.d = 1.*AP.d; % m
+P.mu = 1*AP.mu; % kg/s
 P.g = 9.81; % m/s^2
 
 % saturation limits for each rotor
@@ -74,6 +74,15 @@ wn_z     = sqrt(b1*P.kp_z);
 P.kd_z   = (2*zeta_z*wn_z-a1)/b1;
 
 P.ki_z   = 0;
+
+% Differential Flatness
+P.omega = 0.1;
+P.z_Amp = 5;
+P.h_Amp = 5;
+P.z_mult = 1;
+P.h_mult = 1;
+
+AP.z0 = P.z_Amp;
 
 
 

@@ -114,7 +114,7 @@ function sys=mdlDerivatives(t,x,u,AP)
   fr       = u(1);
   fl       = u(2);
   
-  zddot     = -(fr+fl)*sin(theta)/(AP.mc+2*AP.mr);
+  zddot     = (-(fr+fl)*sin(theta) -AP.mu*thetadot)/(AP.mc+2*AP.mr);
   hddot     = (-(AP.mc+2*AP.mr)*AP.g + (fr+fl)*cos(theta))/(AP.mc+2*AP.mr);
   thetaddot = AP.d*(fr-fl)/(AP.Jc+2*AP.mr*AP.d^2);
   

@@ -1,32 +1,47 @@
-function drawVTOL(u)
+function drawVTOL(u,P)
 
     % process inputs to function
     z_v      = u(1);
     h        = u(2);
     theta    = u(3);
     z_t      = u(4);
-    t        = u(5);
+    t        = u(8);
+    
+    time = t;
     
     % define persistent variables 
     persistent VTOL_handle
-    persistent target_handle
+    % persistent target_handle
+    persistent dot_handle
     
     L = 7;
     
     % first time function is called, initialize plot and persistent vars
     if t==0,
         figure(1), clf
-        plot([0,L],[0,0],'k'); % plot track
+        % plot([0,L],[0,0],'k'); % plot track
         hold on
         VTOL_handle    = drawVehicle(z_v, h, theta, []);
-        target_handle  = drawTarget(z_t, []);
-        axis([-L/5, L+L/5, -L, L]);
+        
+        
+        dot_handle = drawDot(time, P, []);
+        % target_handle  = drawTarget(z_t, []);
+        
+        % draw the differentially flat trajectory
+        tt = 0:0.1:200;
+        z = P.z_Amp*cos(P.omega*P.z_mult*tt);
+        h = P.h_Amp*sin(P.omega*P.h_mult*tt);
+        plot(z,h,'r')
+        
+        axis([-10, 10, -10, 10]);
+        axis equal
     
         
     % at every other time step, redraw base and rod
     else 
         drawVehicle(z_v, h, theta, VTOL_handle);
-        drawTarget(z_t, target_handle);
+        % drawTarget(z_t, target_handle);
+        drawDot(time, P, dot_handle);
     end
 end
 
@@ -110,6 +125,21 @@ function handle = drawTarget(z, handle)
     set(handle,'XData',pts(:,1),'YData',pts(:,2));
     drawnow
   end
+end
+
+function handle = drawDot(time, P, handle)
+
+z = P.z_Amp*cos(P.omega*P.z_mult*time);
+h = P.h_Amp*sin(P.omega*P.h_mult*time);
+
+if isempty(handle)
+    handle = plot(z, h, 'g*');
+else
+    set(handle,'XData',z, 'YData',h)
+    drawnow
+end
+
+
 end
 
   
